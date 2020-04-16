@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import AddContact from "./AddContact";
+import React, { Component } from 'react';
+import AddContact from './AddContact';
 
 class Card extends Component {
   state = {
     isShow: false,
   };
 
-  handleShow = () => {
+  showHandler = () => {
     this.setState({
-      isShow: !this.state.isShow,
+      show: !this.state.show,
     });
   };
   render() {
@@ -16,33 +16,33 @@ class Card extends Component {
     console.log(this.props);
     return (
       <>
-        <div className="card">
+        <div className='card'>
           <img
-            src="https://png.pngtree.com/svg/20170802/f96d8acc9e.png"
-            alt="Eiffel Tower"
+            src='https://png.pngtree.com/svg/20170802/f96d8acc9e.png'
+            alt='Eiffel Tower'
           ></img>
           <h3>{name}</h3>
 
-          <span role="img" area-label="mail">
+          <span role='img' aria-label='mail'>
             📧 :{mail}
           </span>
           <br />
-          <span role="img" area-label="mail">
+          <span role='img' aria-label='mail'>
             📱 :{tel}
           </span>
           <br />
 
           <button
-            type="button"
-            className="btn btn-outline-info"
-            onClick={this.props.handleShow}
+            type='button'
+            className='btn btn-outline-info'
+            onClick={() => this.showHandler()}
           >
             EDIT
           </button>
 
           <button
-            type="button"
-            className="btn btn-outline-danger"
+            type='button'
+            className='btn btn-outline-danger'
             onClick={() => this.props.handleDelete(_id)}
           >
             DELETE
@@ -50,9 +50,9 @@ class Card extends Component {
           {this.state.show ? (
             <AddContact
               show={this.state.show}
-              handleShow={this.state.handleShow}
+              handleShow={this.showHandler}
               isEdit={true}
-              handleAdd={this.props.handleAdd}
+              handleAdd={this.props.handleEdit}
               contact={this.props.person}
             />
           ) : null}

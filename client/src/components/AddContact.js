@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Modal, Button, FormControl } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Modal, Button, FormControl } from 'react-bootstrap';
 class AddContact extends Component {
   state = {
-    name: "",
-    mail: "",
-    tel: "",
+    name: '',
+    mail: '',
+    tel: '',
   };
   componentDidMount() {
     this.props.isEdit &&
@@ -23,18 +23,15 @@ class AddContact extends Component {
   };
 
   clickHandler = () => {
-    const { handleEdit, handleAdd, handleShow, isEdit } = this.props;
-    handleShow();
-    if (isEdit) {
-      return handleEdit(this.state);
-    }
-    return handleAdd(this.state);
+    this.props.handleShow();
+    this.props.handleAdd(this.state);
   };
   render() {
     const { show, handleShow } = this.props;
+    console.log('AddContact -> render -> this.props', this.props);
     return (
       <div>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant='primary' onClick={handleShow}>
           ADD
         </Button>
 
@@ -44,33 +41,33 @@ class AddContact extends Component {
           </Modal.Header>
           <Modal.Body>
             <FormControl
-              type="text"
-              name="name"
-              placeholder="Please Enter a name...."
+              type='text'
+              name='name'
+              placeholder='Please Enter a name....'
               defaultValue={this.state.name}
               onChange={this.handleChange}
             />
 
             <FormControl
-              type="text"
-              name="mail"
-              placeholder="Please Enter a mail...."
+              type='text'
+              name='mail'
+              placeholder='Please Enter a mail....'
               defaultValue={this.state.mail}
               onChange={this.handleChange}
             />
             <FormControl
-              type="text"
-              name="tel"
-              placeholder="Please Enter a phone number...."
+              type='text'
+              name='tel'
+              placeholder='Please Enter a phone number....'
               defaultValue={this.state.tel}
               onChange={this.handleChange}
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleShow}>
+            <Button variant='secondary' onClick={() => handleShow()}>
               close
             </Button>
-            <Button variant="primary" onClick={() => this.clickHandler()}>
+            <Button variant='primary' onClick={() => this.clickHandler()}>
               Save Changes
             </Button>
           </Modal.Footer>

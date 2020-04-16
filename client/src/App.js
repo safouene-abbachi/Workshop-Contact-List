@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Card from "./components/card";
-import axios from "axios";
-import "./App.css";
-import AddContact from "./components/AddContact";
+import React, { Component } from 'react';
+import Card from './components/card';
+import axios from 'axios';
+import './App.css';
+import AddContact from './components/AddContact';
 
 class App extends Component {
   state = {
@@ -18,13 +18,13 @@ class App extends Component {
     this.getAllContacts();
   }
   getAllContacts = () =>
-    axios.get("/contacts").then((res) => {
+    axios.get('/contacts').then((res) => {
       this.setState({
         contacts: res.data,
       });
     });
   handleAdd = (newContact) =>
-    axios.post("/add_contact", newContact).then(this.getAllContacts());
+    axios.post('/add_contact', newContact).then(this.getAllContacts());
 
   handleDelete = (id) =>
     axios.delete(`/delete_contact/${id}`).then(this.getAllContacts());
@@ -38,14 +38,14 @@ class App extends Component {
       .then(this.getAllContacts());
   render() {
     return (
-      <div className="App">
-        <div className="title">
+      <div className='App'>
+        <div className='title'>
           <h1>
-            <span style={{ color: "#ff9f43" }}>Con</span>
-            <span style={{ color: "#0abde3" }}>ta</span>
-            <span style={{ color: "#ee5253" }}>ct-</span>
-            <span style={{ color: "#00d2d3" }}>Li</span>
-            <span style={{ color: "#5f27cd" }}>st</span>
+            <span style={{ color: '#ff9f43' }}>Con</span>
+            <span style={{ color: '#0abde3' }}>ta</span>
+            <span style={{ color: '#ee5253' }}>ct-</span>
+            <span style={{ color: '#00d2d3' }}>Li</span>
+            <span style={{ color: '#5f27cd' }}>st</span>
           </h1>
         </div>
         <AddContact
@@ -53,15 +53,13 @@ class App extends Component {
           handleShow={this.handleShow}
           handleAdd={this.handleAdd}
         />
-        <div className="w">
+        <div className='w'>
           {this.state.contacts.map((el, i) => (
             <Card
               key={i}
               person={el}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
-              handleShow={this.handleShow}
-              show={this.state.show}
             />
           ))}
         </div>
