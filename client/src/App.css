@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Exo:700");
+@import url("https://fonts.googleapis.com/css?family=Abel");
+body {
+  background-color: #dfe6e9;
+  -webkit-transform: perspective(900px);
+  -webkit-transform-style: preserve-3d;
+}
+.title {
+  width: 100%;
+  text-align: center;
+}
+.title h1 {
+  font-size: 50px;
+  font-family: "Exo", sans-serif;
+}
+
+.card {
+  text-align: center;
+  position: inherit;
+  left: 25px;
+  width: 200px;
+  height: 300px;
+
+  background: linear-gradient(rgb(93, 94, 170), rgb(93, 66, 103));
+  animation: animate 1s linear infinite;
+  transition: 0.6s;
+  border-radius: 5px;
+  cursor: pointer;
+
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+}
+.card:hover {
+  transform: rotatex(0deg);
+  transition: 0.6s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+.card img {
+  width: 150px;
+  height: 130px;
+}
+.w {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.btn {
+  width: 150px;
+  height: 32px;
+  margin-left: 20px;
+}
